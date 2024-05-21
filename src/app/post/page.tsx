@@ -5,6 +5,7 @@ import Paragraph from "./components/Paragraph";
 import { PostDummy } from "@/components/dummies";
 import Control from "./components/Control";
 import Info from "./components/Info";
+import Author from "./components/Author";
 
 const page = () => {
   return (
@@ -16,9 +17,9 @@ const page = () => {
         <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] ">
           {PostDummy.title}
         </h1>
-        <div className="relative w-full  h-[200px] lg:w-[1000px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
+        <div className="relative w-full max-w-[320px] lg:max-w-0  h-[200px] lg:w-[1000px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
           <Image
-            src={PostDummy.image[0]}
+            src={PostDummy.image[2]}
             alt={PostDummy.title}
             layout="fill"
             objectFit="cover"
@@ -55,6 +56,7 @@ const page = () => {
       <hr />
 
       {/* About the author */}
+      <Author data={PostDummy.author} />
     </div>
   );
 };
