@@ -1,34 +1,34 @@
-import { Post } from "@/components/types";
+import { type Paragraph, Post } from "@/components/types";
 import Image from "next/image";
 import React, { ReactElement } from "react";
 
-const Paragraph = (): ReactElement => {
+const Paragraph = ({ data }: { data: Paragraph }): ReactElement => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 lg:max-w-[800px] mx-auto ">
       <div className="space-y-6">
-        <h3 className="text-[15px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-          mollitia ipsum libero. Dolorum impedit, veritatis optio cum beatae quo
-          dignissimos nostrum quisquam ratione exercitationem sequi perferendis
-          vel id sed hic commodi ab minima asperiores totam rerum reiciendis.
-          Doloremque quam ducimus, laudantium vitae consequatur officiis
-          provident tempore, quasi obcaecati placeat temporibus?
-        </h3>
+        {data.image ? (
+          <div className="relative w-full h-[200px] lg:w-[800px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
+            <Image
+              src={data.image}
+              alt={"paragraph"}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : (
+          ""
+        )}
+        <h3 className="text-[15px]">{data.text}</h3>
 
         {/* Caption */}
-        <h5 className="border-l-[2px] pl-6 italic text-[20px] text-[#4e4d58] ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-          corporis fugiat saepe dolores sed voluptate necessitatibus minus
-          laudantium ratione animi.
+        <h5 className="border-l-[2px] lg:max-w-[720px] lg:mx-auto pl-6 italic text-[20px] text-[#4e4d58] relative ">
+          <span className="absolute top-0 left-0 text-6xl font-black text-[#6e6e6e42] ">
+            &apos;
+          </span>
+          {data.caption}
         </h5>
 
-        <h3 className="text-[15px]">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          delectus omnis fuga architecto vitae culpa sint, totam dolores, rerum
-          expedita nisi odit corrupti dolorum velit iste aut obcaecati alias
-          illo! Voluptates nam rerum sint dignissimos vel incidunt non enim
-          natus.
-        </h3>
+        <h3 className="text-[15px]">{data.moreText}</h3>
       </div>
     </div>
   );
