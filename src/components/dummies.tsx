@@ -1,12 +1,31 @@
+import { Post } from "./types";
 
-export const PostDummy = {
+export const PostDummy: Post = {
   title: "The Title Of The National Park",
   date: "December 15, 2023",
   author: "Anthony Ezeh",
   views: 422,
-  caption: 40,
+  caption: "Jesus Is King",
+  comments: [
+    {
+      id: "iwnownewencw",
+      comment: "Nice topic!",
+    },
+    {
+      id: "gonerrer",
+      comment: "I like the pictures!",
+    },
+    {
+      id: "iwnownewencw",
+      comment: "It is sooo realistic ",
+    },
+    {
+      id: "iwnownewencw",
+      comment: "I want these for myself",
+    },
+  ],
   categories: ["Action", "Gaming"],
-  image: "/neon.jpg",
+  image: ["/neon.jpg", "/neon.jpg", "/neon.jpg"],
   paragraph: [
     {
       image: "",
@@ -19,8 +38,8 @@ export const PostDummy = {
 
     {
       image: "/assasin.jpg",
-      caption: "",
       text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.",
+      caption: "",
       moreText:
         "Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. My query. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.",
     },
