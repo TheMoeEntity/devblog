@@ -20,6 +20,7 @@ import Slider from "react-slick";
 import LeftButton from "./components/LeftButton";
 import RightButton from "./components/RightButton";
 import Post from "./components/Post";
+import CommentComp from "./components/Comment";
 
 const Page = () => {
   const settings = {
@@ -97,6 +98,45 @@ const Page = () => {
       {/* About the author */}
       <Author data={PostDummy[0].author} />
 
+      {/* Comments */}
+      <div className="py-10  max-w-[800px] mx-auto">
+        <h1 className="text-center text-[23px] text-black font-[600] ">
+          Thoughts on &quot;{PostDummy[0].title}&quot;
+          <div className="space-y-8 my-6">
+            {PostDummy[0].comments.map((comment, i) => (
+              <CommentComp key={i} comment={comment} />
+            ))}
+          </div>
+          <hr />
+        </h1>
+      </div>
+
+      {/* Leave a reply */}
+      <div className="my-10 w-full space-y-6  max-w-[800px] mx-auto">
+        <h1 className="text-center text-[23px] text-black font-[600] ">
+          Leave A Comment
+        </h1>
+        <form className="space-y-4 w-full flex flex-col">
+          <label className="flex flex-col w-full space-y-2">
+            <h3>Username</h3>
+            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
+          </label>
+          <label className="flex flex-col w-full space-y-2">
+            <h3>Email</h3>
+            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
+          </label>
+          <label className="flex flex-col w-full space-y-2">
+            <h3>Comment</h3>
+            <textarea
+              type="text"
+              className="w-full resize-none [150px]  bg-[#F8F8FA] "
+            />
+          </label>
+          <button className="w-[150px] rounded-lg text-white py-4 bg-[#34343B] mx-auto ">Send</button>
+        </form>
+      </div>
+
+      {/* Other Posts */}
       <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3  mx-auto">
         {/* Popular post */}
         <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] ">
