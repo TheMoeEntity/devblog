@@ -7,7 +7,9 @@ export type Paragraph = {
 
 export type Comments = {
   id: String;
+  username: string;
   comment: String;
+  date: string;
 };
 
 export interface Post {

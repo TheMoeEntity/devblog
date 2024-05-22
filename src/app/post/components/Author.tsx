@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ArrowTopRight } from "./svg";
+import { ArrowTopRight, Folder } from "./svg";
 
 const Author = ({ data }: { data: string }) => {
   return (
@@ -18,8 +18,8 @@ const Author = ({ data }: { data: string }) => {
         <span className="text-[14px] text-black font-[500] ">
           Written By: {data}
         </span>
-        <p className="flex space-x-2">
-          All posts by the author <ArrowTopRight />{" "}
+        <p className="flex items-center space-x-2 text-[11px] ">
+          <span>All posts by the author</span> <Folder />
         </p>
       </div>
       <p className="w-full">

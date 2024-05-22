@@ -11,19 +11,27 @@ export const PostDummy: Post[] = [
     comments: [
       {
         id: "iwnownewencw",
+        username: "alice simon",
         comment: "Nice topic!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "gonerrer",
+        username: "jane doe",
         comment: "I like the pictures!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "anthony caron",
         comment: "It is sooo realistic ",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "moses nwigberi",
         comment: "I want these for myself",
+        date: "december 25, 2023 at 10:50AM",
       },
     ],
     categories: ["Action", "Gaming"],
@@ -58,19 +66,27 @@ export const PostDummy: Post[] = [
     comments: [
       {
         id: "iwnownewencw",
+        username: "alice simon",
         comment: "Nice topic!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "gonerrer",
+        username: "jane doe",
         comment: "I like the pictures!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "anthony caron",
         comment: "It is sooo realistic ",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "moses nwigberi",
         comment: "I want these for myself",
+        date: "december 25, 2023 at 10:50AM",
       },
     ],
     categories: ["Action", "Gaming"],
@@ -105,19 +121,27 @@ export const PostDummy: Post[] = [
     comments: [
       {
         id: "iwnownewencw",
+        username: "alice simon",
         comment: "Nice topic!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "gonerrer",
+        username: "jane doe",
         comment: "I like the pictures!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "anthony caron",
         comment: "It is sooo realistic ",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "moses nwigberi",
         comment: "I want these for myself",
+        date: "december 25, 2023 at 10:50AM",
       },
     ],
     categories: ["Action", "Gaming"],
@@ -152,19 +176,27 @@ export const PostDummy: Post[] = [
     comments: [
       {
         id: "iwnownewencw",
+        username: "alice simon",
         comment: "Nice topic!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "gonerrer",
+        username: "jane doe",
         comment: "I like the pictures!",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "anthony caron",
         comment: "It is sooo realistic ",
+        date: "december 25, 2023 at 10:50AM",
       },
       {
         id: "iwnownewencw",
+        username: "moses nwigberi",
         comment: "I want these for myself",
+        date: "december 25, 2023 at 10:50AM",
       },
     ],
     categories: ["Action", "Gaming"],
