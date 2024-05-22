@@ -1,13 +1,39 @@
-import React from "react";
-import { Bookmark, Clock, Comment, Eye, Hash, Pen } from "./components/svg";
+"use client";
+import React, { ReactElement, useRef } from "react";
+import {
+  Bookmark,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Comment,
+  Eye,
+  Hash,
+  Pen,
+} from "./components/svg";
 import Image from "next/image";
 import Paragraph from "./components/Paragraph";
 import { PostDummy } from "@/components/dummies";
-import Control from "./components/Control";
 import Info from "./components/Info";
 import Author from "./components/Author";
+import Slider from "react-slick";
 
-const page = () => {
+import LeftButton from "./components/LeftButton";
+import RightButton from "./components/RightButton";
+
+const Page = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 100,
+    fade: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    arrows: true,
+    autoplay: true,
+   
+  };
+
   return (
     <div className="w-full bg-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20 ">
       <Info data={PostDummy} />
@@ -17,15 +43,26 @@ const page = () => {
         <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] ">
           {PostDummy.title}
         </h1>
-        <div className="relative w-full max-w-[320px] lg:max-w-0  h-[200px] lg:w-[1000px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
-          <Image
-            src={PostDummy.image[2]}
-            alt={PostDummy.title}
-            layout="fill"
-            objectFit="cover"
-          />
-          <Control />
-        </div>
+
+        <Slider
+          {...settings}
+          className="relative  mx-auto w-full lg:max-w-0 md:h-[450px]  h-[200px] lg:w-[1000px] lg:h-[700px] "
+        >
+          {PostDummy.image.map((image, i) => (
+            <div
+              key={i}
+              className="relative w-full mx-auto lg:max-w-0 md:h-[450px]  h-[200px] lg:w-[1000px] lg:h-[700px]  "
+            >
+              <Image
+                src={image}
+                alt={"slide"}
+                layout="fill"
+                objectFit="cover"
+                className=" rounded-lg overflow-hidden w-full lg:max-w-0 md:h-[450px]  h-[200px] lg:w-[1000px] lg:h-[700px]  "
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
 
       {/* Paragraphs */}
@@ -61,4 +98,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

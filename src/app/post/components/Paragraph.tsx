@@ -7,7 +7,7 @@ const Paragraph = ({ data }: { data: Paragraph }): ReactElement => {
     <div className="space-y-6 lg:max-w-[800px] mx-auto ">
       <div className="space-y-6">
         {data.image ? (
-          <div className="relative w-full h-[200px] lg:w-[800px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
+          <div className="relative w-full h-[200px]  max-w-[355px] lg:max-w-0 lg:w-[800px] lg:h-[700px] rounded-lg overflow-hidden flex justify-center items-center ">
             <Image
               src={data.image}
               alt={"paragraph"}
