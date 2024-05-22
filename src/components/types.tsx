@@ -11,6 +11,7 @@ export type Comments = {
 };
 
 export interface Post {
+  id: string;
   date: string;
   author: string;
   views: number;

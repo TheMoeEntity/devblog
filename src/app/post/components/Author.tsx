@@ -4,9 +4,15 @@ import { ArrowTopRight } from "./svg";
 
 const Author = ({ data }: { data: string }) => {
   return (
-    <div className="flex gap-3 flex-wrap">
+    <div className="flex gap-3 w-full max-w-[800px] mx-auto flex-wrap">
       <div className="h-[72px] w-[72px] relative rounded-full overflow-hidden ">
-        <Image layout="fill" objectFit="cover" alt="img" src={"/neon.jpg"} />
+        <Image
+          layout="fill"
+          className="transition transform hover:scale-150 duration-300"
+          objectFit="cover"
+          alt="img"
+          src={"/neon.jpg"}
+        />
       </div>
       <div className="">
         <span className="text-[14px] text-black font-[500] ">
