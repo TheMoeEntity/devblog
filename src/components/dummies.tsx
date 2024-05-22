@@ -25,7 +25,7 @@ export const PostDummy: Post = {
     },
   ],
   categories: ["Action", "Gaming"],
-  image: ["/neon.jpg", "/neon.jpg", "/neon.jpg"],
+  image: ["/neon.jpg", "/assasin.jpg", "/moonlight.jpg", "/port.jpg"],
   paragraph: [
     {
       image: "",
