@@ -113,3 +113,13 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@font-face {
+  font-family: "copycat";
+  src:
+    url("../../public/fonts/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2") format("woff2"),
+    url("../../public/fonts/pxiEyp8kv8JHgFVrJJfecg.woff2") format("woff2"),
+    url("../../public/fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2") format("woff2");
+  font-weight: unset;
+  font-style: normal;
+}
