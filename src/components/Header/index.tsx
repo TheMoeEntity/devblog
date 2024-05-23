@@ -1,4 +1,5 @@
 import React from "react";
+import "../../app/globals.css";
 
 const Header = () => {
   return (
@@ -6,7 +7,7 @@ const Header = () => {
       <div className="fixed w-full top-0 shadow-xl lg:hidden left-0 px-5 py-7 bg-white flex justify-between">
         <div className="flex items-center font-semibold gap-x-3">
           <i className="fas fa-bars text-2xl"></i>
-          <span>Menu</span>
+          <span className="font-medium">Menu</span>
         </div>
         <div className="flex gap-x-5 items-center">
           <span>A</span>
@@ -16,7 +17,10 @@ const Header = () => {
           </span>
         </div>
       </div>
-      <h1 className="text-[40px] font-[700] text-[#34343B] mt-6 lg:mt-0 ">
+      <h1
+        className="text-[45px] font-black text-[#34343B] mt-20 lg:mt-0 "
+        style={{ fontFamily: "copycat" }}
+      >
         Blogville
       </h1>
       <div className="absolute z-10 hidden lg:flex bg-white w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">

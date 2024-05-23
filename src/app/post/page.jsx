@@ -1,4 +1,5 @@
 "use client";
+import "../../app/globals.css";
 import React, { ReactElement, useRef } from "react";
 import {
   Bookmark,
@@ -132,7 +133,9 @@ const Page = () => {
               className="w-full resize-none [150px]  bg-[#F8F8FA] "
             />
           </label>
-          <button className="w-[150px] rounded-lg text-white py-4 bg-[#34343B] mx-auto ">Send</button>
+          <button className="w-[150px] rounded-lg text-white py-4 bg-[#34343B] mx-auto ">
+            Send
+          </button>
         </form>
       </div>
 
