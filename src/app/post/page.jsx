@@ -36,6 +36,8 @@ const Page = () => {
     autoplay: false,
   };
 
+  const color = localStorage.getItem("color");
+
   return (
     <div className="w-full bg-lightOne dark:bg-darkOne  dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20 ">
       <Info data={PostDummy[0]} />
@@ -114,7 +116,7 @@ const Page = () => {
 
       {/* Leave a reply */}
       <div className="my-10 w-full space-y-6  max-w-[800px] mx-auto">
-        <h1 className="text-center text-[23px] text-black font-[600] ">
+        <h1 className="text-center text-[23px] dark:text-white text-black font-[600] ">
           Leave A Comment
         </h1>
         <form className="space-y-4 w-full flex flex-col">
@@ -133,8 +135,8 @@ const Page = () => {
               className="w-full resize-none [150px]  bg-[#F8F8FA] "
             />
           </label>
-          <button className="w-[150px] rounded-lg text-white py-4 bg-[#34343B] mx-auto ">
-            Send
+          <button className="w-[150px] bg-darkThree rounded-lg shadow-xl text-white py-4 mx-auto">
+            <h3>Send</h3>
           </button>
         </form>
       </div>
@@ -161,7 +163,9 @@ const Page = () => {
         </div>
         {/* Contact Me */}
         <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] ">
-          <h1 className="text-[16px] text-black font-[500] ">Contact Me</h1>
+          <h1 className="text-[16px] text-black dark:text-white font-[500] ">
+            Contact Me
+          </h1>
 
           <form className=" w-full space-y-4  ">
             <label className="w-full flex flex-col space-y-2 font-[500] ">
@@ -184,8 +188,8 @@ const Page = () => {
               />
             </label>
 
-            <button className="flex justify-center items-center bg-[#34343B] w-[150px] text-white py-2 rounded-lg ">
-              Send <ChevronRight />
+            <button className="flex justify-center items-center bg-[#34343B] w-[150px] mx-auto text-white py-2 rounded-lg ">
+              Send
             </button>
           </form>
         </div>

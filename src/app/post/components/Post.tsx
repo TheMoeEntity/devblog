@@ -14,13 +14,12 @@ const Post = ({
 }): ReactElement => {
   const color = localStorage.getItem("color");
   return (
-    <div className="grid grid-cols-10  w-full gap-2 lg:gap-6">
+    <div className="grid grid-cols-10  bg-lightOne dark:bg-darkOne w-full gap-2 lg:gap-6">
       <div className="relative w-fit col-span-3">
         {/* Index */}
         <span
-          className={`bg-[${
-            color ? color : "#ffffff"
-          }] z-10 w-5 h-5 flex justify-center items-center rounded-full dark:text-white text-black absolute -top-1.5 drop-shadow-lg -left-1.5 `}
+          style={{ backgroundColor: color || "#ffffff" }}
+          className={`z-10 w-5 h-5 flex justify-center items-center rounded-full text-black shadow-md  absolute -top-1.5 drop-shadow-lg -left-1.5 `}
         >
           {number + 1}
         </span>
@@ -40,7 +39,7 @@ const Post = ({
       </div>
 
       <div className="w-full col-span-7 flex flex-col justify-around ">
-        <h1 className="text-black text-[16px] font-[500] truncate-2-lines capitalize ">
+        <h1 className="text-black dark:text-white text-[16px] font-[500] truncate-2-lines capitalize ">
           {data.title}
         </h1>
 
