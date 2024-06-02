@@ -22,7 +22,9 @@ export const Clock = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -40,7 +42,9 @@ export const Pen = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -58,7 +62,9 @@ export const Eye = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -81,7 +87,9 @@ export const Comment = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -99,7 +107,9 @@ export const Bookmark = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -117,7 +127,9 @@ export const Hash = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -135,7 +147,9 @@ export const ChevronRight = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-6 h-6"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-6 h-6"
     >
       <path
         strokeLinecap="round"
@@ -153,7 +167,9 @@ export const ChevronLeft = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-6 h-6"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-6 h-6"
     >
       <path
         strokeLinecap="round"
@@ -171,7 +187,9 @@ export const ArrowTopRight = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-6 h-6"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-6 h-6"
     >
       <path
         strokeLinecap="round"
@@ -189,7 +207,9 @@ export const Folder = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      className="w-4 h-4"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="stroke-black w-4 h-4"
     >
       <path
         strokeLinecap="round"
@@ -209,7 +229,7 @@ export const Moon = (): ReactElement => {
       width="16"
       height="16"
       fill={color ? color : "none"}
-      className="bi bi-moon-stars-fill"
+      className="stroke-black bi bi-moon-stars-fill"
       viewBox="0 0 16 16"
     >
       <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
@@ -226,7 +246,7 @@ export const Sun = (): ReactElement => {
       width="16"
       height="16"
       fill={color ? color : "none"}
-      className="bi bi-lamp-fill"
+      className="stroke-black bi bi-lamp-fill"
       viewBox="0 0 16 16"
     >
       <path
