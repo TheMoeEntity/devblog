@@ -22,8 +22,6 @@ export const Clock = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -42,8 +40,6 @@ export const Pen = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -62,8 +58,6 @@ export const Eye = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -87,8 +81,6 @@ export const Comment = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -107,8 +99,6 @@ export const Bookmark = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -127,8 +117,6 @@ export const Hash = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
@@ -147,8 +135,6 @@ export const ChevronRight = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-6 h-6"
     >
       <path
@@ -167,8 +153,6 @@ export const ChevronLeft = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-6 h-6"
     >
       <path
@@ -187,8 +171,6 @@ export const ArrowTopRight = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-6 h-6"
     >
       <path
@@ -207,8 +189,6 @@ export const Folder = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       fill={color ? color : "none"}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
       className="w-4 h-4"
     >
       <path
