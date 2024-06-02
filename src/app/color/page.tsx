@@ -25,7 +25,7 @@ const Page = (): ReactElement => {
   }, []);
 
   const handleChange = (e: any) => {
-    const newColor = e.target.name;
+    const newColor = e.target.id;
     if (newColor) {
       setColor(newColor);
     }
@@ -46,7 +46,7 @@ const Page = (): ReactElement => {
         {colors.map((color, i) => (
           <button
             onClick={handleChange}
-            name={color}
+            id={color}
             style={{ backgroundColor: color }}
             className="cursor-pointer w-20 h-20 rounded-full"
             key={i}

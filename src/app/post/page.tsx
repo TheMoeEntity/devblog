@@ -1,18 +1,13 @@
 "use client";
 import "../../app/globals.css";
-import React, { ReactElement, useRef } from "react";
-import {
-  Bookmark,
-  Hash,
-} from "./components/svg";
+import React from "react";
+import { Bookmark, Hash } from "./components/svg";
 import Image from "next/image";
 import Paragraph from "./components/Paragraph";
 import { PostDummy } from "@/components/dummies";
 import Info from "./components/Info";
 import Author from "./components/Author";
 import Slider from "react-slick";
-import LeftButton from "./components/LeftButton";
-import RightButton from "./components/RightButton";
 import Post from "./components/Post";
 import CommentComp from "./components/Comment";
 
@@ -37,18 +32,18 @@ const Page: React.FC = () => {
 
       {/* Title and Subject Image */}
       <div className="flex flex-col items-center px-4 space-y-6 w-full m-auto">
-        <h1 className="font-[700] capitalize bg-clip-text text-clip text-transparent bg-gradient-to-l text-[32px] text-center w-full lg:max-w-[800px] text-white">
+        <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] dark:text-white">
           {PostDummy[0].title}
         </h1>
 
         <Slider
           {...settings}
-          className="relative w-full lg:w-[1000px] mx-auto h-[250px] lg:h-[666px] "
+          className="relative w-full lg:w-[1000px]   mx-auto h-[250px] lg:h-[666px]  "
         >
           {PostDummy[0].image.map((image, i) => (
             <div
               key={i}
-              className="relative w-full transition transform hover:scale-105 duration-300 mx-auto rounded-lg overflow-hidden md:h-[400px] h-[250px] lg:h-[666px]"
+              className="relative w-full transition transform hover:scale-105 duration-300 mx-auto rounded-lg overflow-hidden md:h-[400px] h-[250px] lg:h-[666px]  "
             >
               <Image
                 src={image}

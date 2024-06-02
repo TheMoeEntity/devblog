@@ -1,9 +1,10 @@
 "use client";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import {type ReactElement } from "react";
+import { type ReactElement } from "react";
 
 const Hero = (): ReactElement => {
   const settings = {
@@ -34,9 +35,7 @@ const Hero = (): ReactElement => {
       },
     ],
   };
-  const images = [
-    "https://demo.birdwp.com/halva/wp-content/uploads/2024/01/sincerely-media-h140-unsplash.jpg",
-  ];
+
   const getRandomImageUrl = () => {
     const randomId = Math.floor(Math.random() * 1000);
     return `https://picsum.photos/500/300?random=${randomId}`;

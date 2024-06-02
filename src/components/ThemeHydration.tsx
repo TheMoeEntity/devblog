@@ -1,9 +1,9 @@
 "use client";
+import React from "react";
 import { useEffect, useState } from "react";
 
-const ThemeHydrationWrapper = ({ children }: { children: any }) => {
+const ThemeHydrationWrapper = ({ children }: { children: any }): any => {
   const [mounted, setMounted] = useState(false);
-
 
   useEffect(() => {
     setMounted(true);
