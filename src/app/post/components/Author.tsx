@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ArrowTopRight, Folder } from "./svg";
+import {  Folder } from "./svg";
 
 const Author = ({ data }: { data: string }) => {
   return (
@@ -15,7 +15,7 @@ const Author = ({ data }: { data: string }) => {
         />
       </div>
       <div className="">
-        <span className="text-[14px] text-black font-[500] ">
+        <span className="text-[14px] text-black dark:text-[#cfcfcf]  font-[500] ">
           Written By: {data}
         </span>
         <p className="flex items-center space-x-2 text-[11px] ">

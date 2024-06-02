@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-import { Clock, Comment, Eye, Pen } from "./svg";
 import { Post } from "@/components/types";
 
 const PostInfo = ({ data }: { data: Post }): ReactElement => {

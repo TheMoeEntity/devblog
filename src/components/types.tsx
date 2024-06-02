@@ -6,9 +6,9 @@ export type Paragraph = {
 };
 
 export type Comments = {
-  id: String;
+  id: string;
   username: string;
-  comment: String;
+  comment: string;
   date: string;
 };
 
