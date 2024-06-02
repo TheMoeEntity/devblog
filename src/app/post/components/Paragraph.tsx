@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Paragraph as ParagraphType } from "@/components/types";
 import Image from "next/image";
 import React from "react";
@@ -8,7 +8,8 @@ interface ParagraphProps {
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ data }) => {
-  const color = localStorage.getItem("color");
+  const color =
+    typeof window !== "undefined" ? localStorage.getItem("color") : null;
 
   return (
     <div className="space-y-6 mx-auto pt-5 lg:pt-10">

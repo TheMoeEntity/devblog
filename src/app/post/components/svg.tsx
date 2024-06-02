@@ -1,9 +1,21 @@
 "use client";
-import React, { type ReactElement, useEffect } from "react";
+import React, { type ReactElement, useEffect, useState } from "react";
+
+const useColor = () => {
+  const [color, setColor] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedColor = localStorage.getItem("color");
+      setColor(storedColor);
+    }
+  }, []);
+
+  return color;
+};
 
 export const Clock = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
 
   return (
     <svg
@@ -24,8 +36,7 @@ export const Clock = (): ReactElement => {
 };
 
 export const Pen = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +56,7 @@ export const Pen = (): ReactElement => {
 };
 
 export const Eye = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +81,7 @@ export const Eye = (): ReactElement => {
 };
 
 export const Comment = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -92,8 +101,7 @@ export const Comment = (): ReactElement => {
 };
 
 export const Bookmark = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -113,8 +121,7 @@ export const Bookmark = (): ReactElement => {
 };
 
 export const Hash = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -134,8 +141,7 @@ export const Hash = (): ReactElement => {
 };
 
 export const ChevronRight = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -155,8 +161,7 @@ export const ChevronRight = (): ReactElement => {
 };
 
 export const ChevronLeft = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -176,8 +181,7 @@ export const ChevronLeft = (): ReactElement => {
 };
 
 export const ArrowTopRight = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -197,8 +201,7 @@ export const ArrowTopRight = (): ReactElement => {
 };
 
 export const Folder = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -218,8 +221,7 @@ export const Folder = (): ReactElement => {
 };
 
 export const Moon = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
 
   return (
     <svg
@@ -237,8 +239,7 @@ export const Moon = (): ReactElement => {
 };
 
 export const Sun = (): ReactElement => {
-  const color = localStorage.getItem("color");
-  useEffect(() => {}, [color]);
+  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -29,7 +29,7 @@ const Page: React.FC = () => {
       <Info data={PostDummy[0]} />
 
       {/* Title and Subject Image */}
-      <div className="flex flex-col items-center px-4 space-y-6 w-full m-auto">
+      <div className="flex flex-col items-center px-4 space-y-6 w-full m-auto relative">
         <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] dark:text-white">
           {PostDummy[0].title}
         </h1>

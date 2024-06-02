@@ -1,32 +1,21 @@
 "use client";
+
 import Image from "next/image";
 import React, { ReactElement, useEffect, useState } from "react";
 import { type Post } from "@/components/types";
 import "../../globals.css";
 import PostInfo from "./PostInfo";
 
-const Post = ({
-  data,
-  number,
-}: {
-  number: number;
-  data: Post;
-}): ReactElement => {
-  const [color, setColor] = useState<string | null>("#ffffff");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedColor = localStorage.getItem("color");
-      setColor(storedColor);
-    }
-  }, []);
+const Post = ({ data, number }: { number: number; data: Post }): any => {
+  const [color, setColor] = useState<string>("#ffffff");
+  const [isMounted, setIsMounted] = useState(false);
 
   return (
     <div className="grid grid-cols-10 bg-lightOne dark:bg-darkOne w-full gap-2 lg:gap-6">
       <div className="relative w-fit col-span-3">
         {/* Index */}
         <span
-          style={{ backgroundColor: color || "#ffffff" }}
+          style={{ backgroundColor: color }}
           className={`z-10 w-5 h-5 flex justify-center items-center rounded-full text-black shadow-md absolute -top-1.5 drop-shadow-lg -left-1.5`}
         >
           {number + 1}
