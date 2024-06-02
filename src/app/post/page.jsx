@@ -33,22 +33,22 @@ const Page = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,
-    autoplay: true,
+    autoplay: false,
   };
 
   return (
-    <div className="w-full bg-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20 ">
+    <div className="w-full bg-lightOne dark:bg-darkOne  dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20 ">
       <Info data={PostDummy[0]} />
 
       {/* Title and Subject Image */}
-      <div className="flex flex-col items-center space-y-6 w-full  m-auto  ">
-        <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] ">
+      <div className="flex flex-col items-center px-4 space-y-6 w-full  m-auto  ">
+        <h1 className="font-[700] capitalize bg-clip-text text-clip text-transparent bg-gradient-to-l  text-[32px] text-center  w-full lg:max-w-[800px] ">
           {PostDummy[0].title}
         </h1>
 
         <Slider
           {...settings}
-          className="relative w-full lg:w-[1000px]   mx-auto h-[250px] lg:h-[666px]  "
+          className="relative w-full lg:w-[1000px] mx-auto h-[250px] lg:h-[666px]  "
         >
           {PostDummy[0].image.map((image, i) => (
             <div
@@ -101,7 +101,7 @@ const Page = () => {
 
       {/* Comments */}
       <div className="py-10  max-w-[800px] mx-auto">
-        <h1 className="text-center text-[23px] text-black font-[600] ">
+        <h1 className="text-center text-[23px] dark:text-white text-black font-[600] ">
           Thoughts on &quot;{PostDummy[0].title}&quot;
           <div className="space-y-8 my-6">
             {PostDummy[0].comments.map((comment, i) => (

@@ -12,11 +12,16 @@ const Post = ({
   number: number;
   data: Post;
 }): ReactElement => {
+  const color = localStorage.getItem("color");
   return (
     <div className="grid grid-cols-10  w-full gap-2 lg:gap-6">
       <div className="relative w-fit col-span-3">
         {/* Index */}
-        <span className="bg-white z-10 w-5 h-5 flex justify-center items-center rounded-full text-black absolute -top-1.5 drop-shadow-lg -left-1.5 ">
+        <span
+          className={`bg-[${
+            color ? color : "#ffffff"
+          }] z-10 w-5 h-5 flex justify-center items-center rounded-full dark:text-white text-black absolute -top-1.5 drop-shadow-lg -left-1.5 `}
+        >
           {number + 1}
         </span>
 
