@@ -1,3 +1,4 @@
+"use client"
 import { Paragraph as ParagraphType } from "@/components/types";
 import Image from "next/image";
 import React from "react";

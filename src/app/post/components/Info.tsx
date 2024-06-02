@@ -1,3 +1,4 @@
+"use client"
 import React, { ReactElement, useEffect } from "react";
 import { Clock, Comment, Eye, Pen } from "./svg";
 import { Post } from "@/components/types";

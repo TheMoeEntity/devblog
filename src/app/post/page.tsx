@@ -24,8 +24,6 @@ const Page: React.FC = () => {
     autoplay: false,
   };
 
-  const color = localStorage.getItem("color") || "#34343B";
-
   return (
     <div className="w-full bg-lightOne dark:bg-darkOne dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20">
       <Info data={PostDummy[0]} />
