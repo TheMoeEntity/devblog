@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ArrowTopRight, Folder } from "./svg";
+import {  Folder } from "./svg";
 
 const Author = ({ data }: { data: string }) => {
   return (

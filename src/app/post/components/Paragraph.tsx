@@ -1,7 +1,6 @@
-import { Paragraph as ParagraphType, Post } from "@/components/types";
+import { Paragraph as ParagraphType } from "@/components/types";
 import Image from "next/image";
 import React from "react";
-import Caption from "./Caption";
 
 interface ParagraphProps {
   data: ParagraphType;

@@ -10,7 +10,7 @@ const Info = ({ data }: { data: Post }): ReactElement => {
   const color = localStorage.getItem("color");
   return (
     <div
-      className={`text-sm px-8  w-full fill-[${color}] lg:max-w-[800px]  m-auto`}
+      className={`text-sm px-4  w-full fill-[${color}] lg:max-w-[800px]  m-auto`}
     >
       <ul className={`flex flex-wrap gap-x-4 fill-[${color}]  justify-center`}>
         <li className={`flex gap-x-1  fill-[${color}]  items-center`}>

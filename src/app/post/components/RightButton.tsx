@@ -3,7 +3,7 @@ import { ChevronRight } from "./svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const RightButton = (props: any): ReactElement => {
+const RightButton = (props: { onClick: any; }): ReactElement => {
   const { onClick } = props;
   return (
     <button

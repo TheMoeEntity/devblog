@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { ReactElement } from "react";
-import Info from "./Info";
 import { type Post } from "@/components/types";
 import "../../globals.css";
 import PostInfo from "./PostInfo";

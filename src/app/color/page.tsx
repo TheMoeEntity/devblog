@@ -1,8 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
-const Page = () => {
-  const colors = ["#FF5733", "#DAEE01", "#00ff00", "#33FF57", "#5733FF", "#16E2F5", "#033E3E", "#00A36C","#FFFF00", "#FFFFC2", "#BD33FF"];
+const Page = (): ReactElement => {
+  const colors = [
+    "#FF5733",
+    "#DAEE01",
+    "#00ff00",
+    "#33FF57",
+    "#5733FF",
+    "#16E2F5",
+    "#033E3E",
+    "#00A36C",
+    "#FFFF00",
+    "#FFFFC2",
+    "#BD33FF",
+  ];
   const [color, setColor] = useState("");
 
   useEffect(() => {
@@ -12,7 +24,7 @@ const Page = () => {
     }
   }, []);
 
-  const handleChange = (e: { target: { name: any } }) => {
+  const handleChange = (e: any) => {
     const newColor = e.target.name;
     if (newColor) {
       setColor(newColor);

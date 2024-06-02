@@ -12,6 +12,7 @@ const Header = () => {
   const storageEventName = "localStorageUpdate";
 
   useEffect(() => {
+    console.log(color);
     const storedColor = localStorage.getItem("color");
     if (!storedColor) {
       const defaultColor = "#ff0000";
@@ -33,13 +34,8 @@ const Header = () => {
     return () => {
       window.removeEventListener(storageEventName, handleStorageChange);
     };
-  }, []);
+  }, [color]);
 
-  const updateColor = (newColor: string) => {
-    localStorage.setItem("color", newColor);
-    setColor(newColor);
-    window.dispatchEvent(new Event(storageEventName));
-  };
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");

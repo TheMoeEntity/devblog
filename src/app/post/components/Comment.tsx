@@ -1,7 +1,7 @@
 import { type Comments } from "@/components/types";
 import Image from "next/image";
 import React, { type ReactElement } from "react";
-import { Clock, Comment } from "./svg";
+import { Clock } from "./svg";
 
 const CommentComp = ({ comment }: { comment: Comments }): ReactElement => {
   return (
