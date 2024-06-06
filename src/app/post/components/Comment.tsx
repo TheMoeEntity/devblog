@@ -9,6 +9,7 @@ const CommentComp = ({ comment }: { comment: Comments }): ReactElement => {
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duratuon: 1, delay: 0.5 }}
       className="space-y-3 rounded-lg  border-[2px] border-[#F9F9FA] p-4 lg:p-6 bg-lightTwo dark:bg-darkTwo "
     >
       <header className="flex w-full space-x-3 items-center">

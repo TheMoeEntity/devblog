@@ -4,12 +4,14 @@ import React from "react";
 import "../../app/globals.css";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "@/app/post/components/svg";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [color, setColor] = useState<string>("");
   const storageEventName = "localStorageUpdate";
+  const router = useRouter();
 
   useEffect(() => {
     console.log(color);
@@ -36,7 +38,6 @@ const Header = () => {
     };
   }, [color]);
 
-
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
@@ -51,6 +52,7 @@ const Header = () => {
 
   return (
     <header className="w-full text-center py-24 h-[166px] flex justify-center items-center text-black dark:text-white bg-lightOne dark:bg-darkOne relative z-50">
+      {/* Mobile */}
       <div className="fixed w-full top-0 shadow-xl lg:hidden left-0 px-5 py-7 bg-lightOne dark:bg-darkOne flex justify-between">
         <div className="flex items-center font-semibold gap-x-3">
           <i className="fas fa-bars text-2xl"></i>
@@ -68,7 +70,7 @@ const Header = () => {
             </div>
           )}
           <span>
-            <i className="fas fa-angle-left"></i>
+            <i className="bi bi-arrow-left " onClick={() => router.back()}></i>
           </span>
         </div>
       </div>
@@ -78,7 +80,8 @@ const Header = () => {
       >
         Blogville
       </h1>
-      <div className="absolute z-10 hidden lg:flex bg-white w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">
+      {/* Desktop */}
+      <div className="absolute z-10 hidden lg:flex bg-lightTwo dark:bg-darkTwo w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">
         <div className="flex gap-x-8 text-[13px] font-semibold">
           <span>Homepage</span>
           <span>Categories</span>
