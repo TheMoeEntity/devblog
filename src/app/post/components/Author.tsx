@@ -1,11 +1,22 @@
 import Image from "next/image";
 import React from "react";
-import {  Folder } from "./svg";
+import { Folder } from "./svg";
+import { motion } from "framer-motion";
 
 const Author = ({ data }: { data: string }) => {
   return (
-    <div className="flex gap-3 w-full max-w-[800px] mx-auto flex-wrap">
-      <div className="h-[72px] w-[72px] relative rounded-full overflow-hidden ">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 1 }}
+      className="flex gap-3 w-full max-w-[800px] mx-auto flex-wrap"
+    >
+      <motion.div
+        className="h-[72px] w-[72px] relative rounded-full overflow-hidden "
+        initial={{ scale: 2 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
         <Image
           layout="fill"
           className="transition transform hover:scale-150 duration-300"
@@ -13,7 +24,7 @@ const Author = ({ data }: { data: string }) => {
           alt="img"
           src={"/neon.jpg"}
         />
-      </div>
+      </motion.div>
       <div className="">
         <span className="text-[14px] text-black dark:text-[#cfcfcf]  font-[500] ">
           Written By: {data}
@@ -27,7 +38,7 @@ const Author = ({ data }: { data: string }) => {
         Eveniet modi earum commodi voluptatibus repellendus ducimus maiores
         illum quo, enim iste?
       </p>
-    </div>
+    </motion.div>
   );
 };
 

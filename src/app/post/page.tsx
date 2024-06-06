@@ -1,6 +1,6 @@
 "use client";
 import "../../app/globals.css";
-import "swiper/css";
+
 import React from "react";
 import { Bookmark, ChevronLeft, ChevronRight, Hash } from "./components/svg";
 import Image from "next/image";
@@ -52,12 +52,7 @@ const Page: React.FC = () => {
           </div>
           {PostDummy[0].image.map((image, i) => (
             <SwiperSlide key={i} className="relative w-full">
-              <motion.div
-                initial={{ scale: 2 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 1 }}
-                className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto"
-              >
+              <div className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto">
                 <Image
                   src={image}
                   alt="paragraph"
@@ -67,7 +62,7 @@ const Page: React.FC = () => {
                   quality={100}
                   sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
                 />
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -83,7 +78,13 @@ const Page: React.FC = () => {
         <Bookmark />
         <h3>Categories:</h3>
         {PostDummy[0].categories.map((category, i) => (
-          <span key={i}>{category}</span>
+          <motion.span
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            key={i}
+          >
+            {category}
+          </motion.span>
         ))}
       </div>
 
@@ -92,7 +93,13 @@ const Page: React.FC = () => {
         <Hash />
         <h3>Tags:</h3>
         {PostDummy[0].tags.map((tag, i) => (
-          <span key={i}>#{tag}</span>
+          <motion.span
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            key={i}
+          >
+            #{tag}
+          </motion.span>
         ))}
       </div>
 
@@ -127,23 +134,11 @@ const Page: React.FC = () => {
         <form className="space-y-4 w-full flex flex-col">
           <label className="flex flex-col w-full space-y-2">
             <h3>Username</h3>
-            <motion.input
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              type="text"
-              className="w-full bg-[#F8F8FA] h-[45px]"
-            />
+            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
           </label>
           <label className="flex flex-col w-full space-y-2">
             <h3>Email</h3>
-            <motion.input
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              type="text"
-              className="w-full bg-[#F8F8FA] h-[45px]"
-            />
+            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
           </label>
           <label className="flex flex-col w-full space-y-2">
             <h3>Comment</h3>
@@ -188,40 +183,22 @@ const Page: React.FC = () => {
           <form className="w-full space-y-4">
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Name</h3>
-              <motion.input
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-[45px] bg-[#F8F8FA]"
-                type="text"
-              />
+              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Email</h3>
-              <motion.input
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-[45px] bg-[#F8F8FA]"
-                type="text"
-              />
+              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Subject</h3>
-              <motion.input
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-[45px] bg-[#F8F8FA]"
-                type="text"
-              />
+              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Your Message</h3>
               <motion.textarea
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1 }}
                 className="w-full h-[150px] resize-none bg-[#F8F8FA]"
               />
             </label>

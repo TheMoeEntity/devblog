@@ -16,7 +16,7 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="grid grid-cols-10 bg-lightOne dark:bg-darkOne w-full gap-2 lg:gap-6"
+      className="grid grid-cols-10  bg-lightTwo dark:bg-darkTwo rounded-lg w-full gap-2 lg:gap-6"
     >
       <div className="relative w-fit col-span-3">
         {/* Index */}
