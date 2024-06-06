@@ -1,18 +1,23 @@
 "use client";
-import React from "react";
+
+import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ThemeHydrationWrapper = ({ children }: { children: any }): any => {
+function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, [mounted]);
+  }, []);
 
   if (!mounted) {
     return null;
   }
-  return <>{children}</>;
-};
+  return (
+    <ThemeProvider attribute="class" enableSystem={true}>
+      {children}
+    </ThemeProvider>
+  );
+}
 
-export default ThemeHydrationWrapper;
+export default Providers;

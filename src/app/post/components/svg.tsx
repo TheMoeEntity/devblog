@@ -145,7 +145,6 @@ export const ChevronRight = (): ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill={color ? color : "none"}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
@@ -165,7 +164,6 @@ export const ChevronLeft = (): ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill={color ? color : "none"}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"

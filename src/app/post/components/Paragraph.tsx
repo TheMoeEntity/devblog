@@ -16,12 +16,11 @@ const Paragraph: React.FC<ParagraphProps> = ({ data }) => {
       <div className="space-y-6 mx-auto">
         {data.image && (
           <div className="relative max-w-[1000px] w-full h-[250px] lg:h-[666px] rounded-lg overflow-hidden mx-auto">
+            
             <Image
               src={data.image}
               alt="paragraph"
-              layout="fill"
-              objectFit="cover"
-              priority
+              fill
               className="transition transform hover:scale-105 duration-300"
               quality={100}
               sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"

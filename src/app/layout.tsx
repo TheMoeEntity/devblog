@@ -2,9 +2,9 @@ import React from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Providers from "@/components/ThemeHydration";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,16 +18,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <ThemeProvider enableSystem={true} attribute="class">
-        <body className={poppins.className}>
-          <div className="w-full transition duration-[200] ">{children}</div>
-        </body>
-      </ThemeProvider>
+      <body className={poppins.className}>
+        <Providers>
+          <div className="w-full transition duration-[200ms]">{children}</div>
+        </Providers>
+      </body>
     </html>
   );
 }
