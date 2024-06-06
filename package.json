@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/react-slick": "^0.23.13",
     "bootstrap-icons": "^1.11.3",
+    "framer-motion": "^11.2.10",
     "next": "14.1.0",
     "next-themes": "^0.3.0",
     "react": "^18",

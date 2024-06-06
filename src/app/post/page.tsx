@@ -13,6 +13,7 @@ import CommentComp from "./components/Comment";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const Page: React.FC = () => {
   const swiperRef = useRef(null);
@@ -23,9 +24,14 @@ const Page: React.FC = () => {
 
       {/* Title and Subject Image */}
       <div className="flex flex-col items-center relative space-y-6 w-full m-auto">
-        <h1 className="font-[700] capitalize text-[#34343B] text-[32px] text-center w-full lg:max-w-[800px] dark:text-white">
+        <motion.h1
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="font-[700] capitalize text-[#34343B] text-[32px] text-center w-full lg:max-w-[800px] dark:text-white"
+        >
           {PostDummy[0].title}
-        </h1>
+        </motion.h1>
 
         <Swiper
           className="w-full h-fit rounded-lg overflow-hidden"
@@ -46,7 +52,12 @@ const Page: React.FC = () => {
           </div>
           {PostDummy[0].image.map((image, i) => (
             <SwiperSlide key={i} className="relative w-full">
-              <div className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto">
+              <motion.div
+                initial={{ scale: 0.8 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 1 }}
+                className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto"
+              >
                 <Image
                   src={image}
                   alt="paragraph"
@@ -56,7 +67,7 @@ const Page: React.FC = () => {
                   quality={100}
                   sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
                 />
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
