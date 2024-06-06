@@ -1,60 +1,65 @@
 "use client";
 import "../../app/globals.css";
+import "swiper/css";
 import React from "react";
-import { Bookmark, Hash } from "./components/svg";
+import { Bookmark, ChevronLeft, ChevronRight, Hash } from "./components/svg";
 import Image from "next/image";
 import Paragraph from "./components/Paragraph";
 import { PostDummy } from "@/components/dummies";
 import Info from "./components/Info";
 import Author from "./components/Author";
-import Slider from "react-slick";
 import Post from "./components/Post";
 import CommentComp from "./components/Comment";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import { useRef } from "react";
 
 const Page: React.FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 100,
-    fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    arrows: false,
-    autoplay: false,
-  };
+  const swiperRef = useRef(null);
 
   return (
     <div className="w-full bg-lightOne dark:bg-darkOne dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20">
       <Info data={PostDummy[0]} />
 
       {/* Title and Subject Image */}
-      <div className="flex flex-col items-center px-4 space-y-6 w-full m-auto ">
-        <h1 className="font-[700] capitalize text-[#34343B]  text-[32px] text-center  w-full lg:max-w-[800px] dark:text-white">
+      <div className="flex flex-col items-center relative space-y-6 w-full m-auto">
+        <h1 className="font-[700] capitalize text-[#34343B] text-[32px] text-center w-full lg:max-w-[800px] dark:text-white">
           {PostDummy[0].title}
         </h1>
 
-        <Slider
-          {...settings}
-          className="relative w-full lg:w-[1000px]   mx-auto h-[250px] lg:h-[666px]  "
+        <Swiper
+          className="w-full h-fit rounded-lg overflow-hidden"
+          modules={[Navigation, Pagination]}
+          pagination
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
         >
+          <div className="z-20 absolute top-0 flex justify-center items-center w-full px-4">
+            <button className="swiper-button-prev bg-white fill-[white] w-[42px] h-[42px] rounded-bl-lg flex justify-center items-center">
+              <ChevronLeft />
+            </button>
+            <button className="swiper-button-next bg-white fill-[white] w-[42px] h-[42px] rounded-br-lg flex justify-center items-center">
+              <ChevronRight />
+            </button>
+          </div>
           {PostDummy[0].image.map((image, i) => (
-            <div
-              key={i}
-              className="relative w-full transition transform hover:scale-105 duration-300 mx-auto rounded-lg overflow-hidden md:h-[400px] h-[250px] lg:h-[666px]  "
-            >
-              <Image
-                src={image}
-                alt={"slide"}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                priority
-                sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
-              />
-            </div>
+            <SwiperSlide key={i} className="relative w-full">
+              <div className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto">
+                <Image
+                  src={image}
+                  alt="paragraph"
+                  className="transition transform hover:scale-105 rounded-lg overflow-hidden duration-300"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  quality={100}
+                  sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
 
       {/* Paragraphs */}

@@ -11,10 +11,6 @@ const Template = ({ children }: { children: ReactNode }): ReactElement => {
       <Header />
       <div className="">{children}</div>
       <Footer />
-      <Script
-        src="https://kit.fontawesome.com/4ef8c63dd7.js"
-        crossOrigin="anonymous"
-      />
     </>
   );
 };
