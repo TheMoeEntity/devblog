@@ -5,13 +5,19 @@ import React, { ReactElement, useEffect, useState } from "react";
 import { type Post } from "@/components/types";
 import "../../globals.css";
 import PostInfo from "./PostInfo";
+import { motion } from "framer-motion";
 
 const Post = ({ data, number }: { number: number; data: Post }): any => {
   const [color, setColor] = useState<string>("#ffffff");
   const [isMounted, setIsMounted] = useState(false);
 
   return (
-    <div className="grid grid-cols-10 bg-lightOne dark:bg-darkOne w-full gap-2 lg:gap-6">
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="grid grid-cols-10 bg-lightOne dark:bg-darkOne w-full gap-2 lg:gap-6"
+    >
       <div className="relative w-fit col-span-3">
         {/* Index */}
         <span
@@ -21,7 +27,12 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
           {number + 1}
         </span>
 
-        <div className="relative w-[100px] h-[100px] overflow-hidden rounded-lg">
+        <motion.div
+          className="relative w-[100px] h-[100px]  rounded-lg"
+          initial={{ scale: 2 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 1 }}
+        >
           <Image
             src={data.image[0]}
             alt="paragraph"
@@ -32,19 +43,29 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
             quality={100}
             className="w-full h-full transition transform hover:scale-150 duration-300"
           />
-        </div>
+        </motion.div>
       </div>
 
       <div className="w-full col-span-7 flex flex-col justify-around">
-        <h1 className="text-black dark:text-white text-[16px] font-[500] truncate-2-lines capitalize">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          className="text-black dark:text-white text-[16px] font-[500] truncate-2-lines capitalize"
+        >
           {data.title}
-        </h1>
+        </motion.h1>
 
-        <div className="w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          className="w-full"
+        >
           <PostInfo data={data} />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

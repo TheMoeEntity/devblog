@@ -14,9 +14,14 @@ const Paragraph: React.FC<ParagraphProps> = ({ data }) => {
 
   return (
     <div className="space-y-6 mx-auto pt-5 lg:pt-10">
-      <div className="space-y-6 mx-auto">
+      <div className="space-y-6 mx-auto w-full relative overflow-hidden">
         {data.image && (
-          <div className="relative max-w-[1000px] w-full h-[250px] lg:h-[666px] rounded-lg overflow-hidden mx-auto">
+          <motion.div
+            initial={{ scale: 2 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: .5 }}
+            className="relative lg:max-w-[1000px] w-full h-[250px] lg:h-[666px] rounded-lg overflow-hidden mx-auto"
+          >
             <Image
               src={data.image}
               alt="paragraph"
@@ -25,7 +30,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ data }) => {
               quality={100}
               sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
             />
-          </div>
+          </motion.div>
         )}
 
         <motion.h3
