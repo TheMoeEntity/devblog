@@ -53,7 +53,7 @@ const Page: React.FC = () => {
           {PostDummy[0].image.map((image, i) => (
             <SwiperSlide key={i} className="relative w-full">
               <motion.div
-                initial={{ scale: 0.8 }}
+                initial={{ scale: 2 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 1 }}
                 className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto"
@@ -116,17 +116,34 @@ const Page: React.FC = () => {
 
       {/* Leave a reply */}
       <div className="my-10 w-full space-y-6 max-w-[800px] mx-auto">
-        <h1 className="text-center text-[23px] dark:text-white text-black font-[600]">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center text-[23px] dark:text-white text-black font-[600]"
+        >
           Leave A Comment
-        </h1>
+        </motion.h1>
         <form className="space-y-4 w-full flex flex-col">
           <label className="flex flex-col w-full space-y-2">
             <h3>Username</h3>
-            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
+            <motion.input
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              type="text"
+              className="w-full bg-[#F8F8FA] h-[45px]"
+            />
           </label>
           <label className="flex flex-col w-full space-y-2">
             <h3>Email</h3>
-            <input type="text" className="w-full bg-[#F8F8FA] h-[45px]" />
+            <motion.input
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              type="text"
+              className="w-full bg-[#F8F8FA] h-[45px]"
+            />
           </label>
           <label className="flex flex-col w-full space-y-2">
             <h3>Comment</h3>
@@ -142,7 +159,9 @@ const Page: React.FC = () => {
       <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto">
         {/* Popular post */}
         <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px]">
-          <h1 className="text-[16px] text-black font-[500]">Popular Posts</h1>
+          <h1 className="text-[16px] text-black dark:text-white font-[500]">
+            Popular Posts
+          </h1>
           <div className="w-full space-y-4">
             {PostDummy.map((post, i) => (
               <Post key={post.id} number={i} data={post} />
@@ -151,7 +170,9 @@ const Page: React.FC = () => {
         </div>
         {/* Random post */}
         <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px]">
-          <h1 className="text-[16px] text-black font-[500]">Random Posts</h1>
+          <h1 className="text-[16px] text-black dark:text-white font-[500]">
+            Random Posts
+          </h1>
           <div className="w-full space-y-4">
             {PostDummy.map((post, i) => (
               <Post key={post.id} number={i} data={post} />
@@ -167,19 +188,42 @@ const Page: React.FC = () => {
           <form className="w-full space-y-4">
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Name</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <motion.input
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-[45px] bg-[#F8F8FA]"
+                type="text"
+              />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Email</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <motion.input
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-[45px] bg-[#F8F8FA]"
+                type="text"
+              />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Subject</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <motion.input
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-[45px] bg-[#F8F8FA]"
+                type="text"
+              />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Your Message</h3>
-              <textarea className="w-full h-[150px] resize-none bg-[#F8F8FA]" />
+              <motion.textarea
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-[150px] resize-none bg-[#F8F8FA]"
+              />
             </label>
 
             <button className="flex justify-center items-center w-[150px] mx-auto text-white py-2 rounded-lg bg-lightThree dark:bg-darkThree">
