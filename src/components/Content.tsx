@@ -20,7 +20,7 @@ export const Content = (): ReactElement => {
       {/* Other Posts */}
       <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto">
         {/* Popular post */}
-        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px]">
+        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] px-4">
           <h1 className="text-[16px] text-black dark:text-white font-[500]">
             Popular Posts
           </h1>
