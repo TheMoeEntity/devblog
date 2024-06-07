@@ -33,7 +33,7 @@ const Hero = (): ReactElement => {
           },
         }}
       >
-        <div className="z-20 absolute top-8 flex justify-center items-center w-full px-4">
+        <div className="z-20 absolute lg:top-8 top-0 flex justify-center items-center w-full px-4">
           <button className="swiper-button-prev bg-white fill-[white] w-[42px] h-[42px] rounded-l-lg  flex justify-center items-center">
             <ChevronLeft />
           </button>
