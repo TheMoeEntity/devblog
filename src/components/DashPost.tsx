@@ -4,12 +4,14 @@ import Image from "next/image";
 import { Bookmark, Eye, Message } from "@/app/post/components/svg"; // Make sure this path is correct
 import { Post as PostType } from "./types";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 interface PostProps {
   data: PostType;
 }
 
 export const DashPost = ({ data }: PostProps): ReactElement => {
+  const router = useRouter();
   const truncateText = (text: string, wordLimit: number): string => {
     const words = text.split(" ");
     if (words.length > wordLimit) {
@@ -22,6 +24,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
 
   return (
     <motion.div
+      onClick={() => router.push("/post")}
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.8 }}
       whileInView={{ opacity: 1, y: 0 }}
