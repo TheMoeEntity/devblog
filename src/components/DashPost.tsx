@@ -28,7 +28,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.8 }}
       whileInView={{ opacity: 1, y: 0 }}
-      className="my-10 text-black dark:text-white"
+      className="my-10 cursor-pointer text-black dark:text-white"
     >
       <div className="z-20 relative w-full mx-auto h-[290px]">
         <Image
@@ -46,7 +46,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
         <div className="flex gap-4 justify-start items-center">
           <Bookmark />
           <span className="text-black dark:text-white text-[11px] ">
-            Minimalism
+            {data.categories[0]}
           </span>
         </div>
 
@@ -75,7 +75,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
           </h3>
 
           <div className="flex justify-start gap-2 items-center">
-            <span>count</span>
+            <span>7</span>
             <Message />
           </div>
         </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { ReactElement } from "react";
 import { DashPost } from "./DashPost";
 import Post from "../app/post/components/Post";
@@ -18,9 +18,9 @@ export const Content = (): ReactElement => {
       </div>
 
       {/* Other Posts */}
-      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto">
+      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto px-4">
         {/* Popular post */}
-        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] px-4">
+        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] ">
           <h1 className="text-[16px] text-black dark:text-white font-[500]">
             Popular Posts
           </h1>
