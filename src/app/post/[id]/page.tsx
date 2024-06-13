@@ -1,26 +1,40 @@
 "use client";
-import "../../app/globals.css";
+import "../../../app/globals.css";
 
-import React from "react";
-import { Bookmark, ChevronLeft, ChevronRight, Hash } from "./components/svg";
+import React, { ReactElement, useEffect, useState } from "react";
+import { Bookmark, ChevronLeft, ChevronRight, Hash } from "../components/svg";
 import Image from "next/image";
-import Paragraph from "./components/Paragraph";
+import Paragraph from "../components/Paragraph";
 import { PostDummy } from "@/components/dummies";
-import Info from "./components/Info";
-import Author from "./components/Author";
-import Post from "./components/Post";
-import CommentComp from "./components/Comment";
+import Info from "../components/Info";
+import Author from "../components/Author";
+import Post from "../components/Post";
+import CommentComp from "../components/Comment";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-const Page: React.FC = () => {
-  const swiperRef = useRef(null);
+const Page = ({ params }: { params: { id: string } }) => {
+  const [data, setData] = useState<Post | undefined>(undefined);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const findId = () => {
+    const valid = PostDummy.find((i) => i.id === params.id);
+    if (valid) {
+      setData(valid);
+    }
+  };
+
+  useEffect(() => {
+    findId();
+  }, [findId, params.id]);
+
+  if (!data) return null;
 
   return (
     <div className="w-full bg-lightOne dark:bg-darkOne dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20">
-      <Info data={PostDummy[0]} />
+      {data && <Info data={data} />}
 
       {/* Title and Subject Image */}
       <div className="flex flex-col items-center relative space-y-6 w-full m-auto">
@@ -30,7 +44,7 @@ const Page: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="font-[700] capitalize text-[#34343B] text-[32px] text-center w-full lg:max-w-[800px] dark:text-white"
         >
-          {PostDummy[0].title}
+          {data && data.title}
         </motion.h1>
 
         <Swiper
@@ -50,73 +64,78 @@ const Page: React.FC = () => {
               <ChevronRight />
             </button>
           </div>
-          {PostDummy[0].image.map((image, i) => (
-            <SwiperSlide key={i} className="relative w-full">
-              <div className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto">
-                <Image
-                  src={image}
-                  alt="paragraph"
-                  className="transition transform hover:scale-105 rounded-lg overflow-hidden duration-300"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  quality={100}
-                  sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
+          {data &&
+            data.image.map((image, i) => (
+              <SwiperSlide key={i} className="relative w-full">
+                <div className="relative flex justify-center items-center max-w-[1000px] rounded-lg overflow-hidden w-full h-[250px] lg:h-[666px]  mx-auto">
+                  <Image
+                    src={image}
+                    alt="paragraph"
+                    className="transition transform hover:scale-105 rounded-lg overflow-hidden duration-300"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    quality={100}
+                    sizes="(max-width: 800px) 355px, (max-width: 1200px) 1000px, 1000px"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
 
       {/* Paragraphs */}
-      {PostDummy[0].paragraph.map((paragraph, i) => (
-        <Paragraph key={i} data={paragraph} />
-      ))}
+      {data &&
+        data.paragraph.map((paragraph, i) => (
+          <Paragraph key={i} data={paragraph} />
+        ))}
 
       {/* Category */}
       <div className="flex items-center flex-wrap space-x-1 text-[12px] capitalize lg:max-w-[800px] lg:mx-auto">
         <Bookmark />
         <h3>Categories:</h3>
-        {PostDummy[0].categories.map((category, i) => (
-          <motion.span
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            key={i}
-          >
-            {category}
-          </motion.span>
-        ))}
+        {data &&
+          data.categories.map((category, i) => (
+            <motion.span
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              key={i}
+            >
+              {category}
+            </motion.span>
+          ))}
       </div>
 
       {/* Tags */}
       <div className="flex items-center flex-wrap space-x-1 text-[12px] capitalize lg:max-w-[800px] lg:mx-auto">
         <Hash />
         <h3>Tags:</h3>
-        {PostDummy[0].tags.map((tag, i) => (
-          <motion.span
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            key={i}
-          >
-            #{tag}
-          </motion.span>
-        ))}
+        {data &&
+          data.tags.map((tag, i) => (
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              key={i}
+            >
+              #{tag}
+            </motion.span>
+          ))}
       </div>
 
       <hr />
 
       {/* About the author */}
-      <Author data={PostDummy[0].author} />
+      <Author data={data && data.author} />
 
       {/* Comments */}
       <div className="py-10 max-w-[800px] mx-auto">
         <h1 className="text-center text-[23px] dark:text-white text-black font-[600]">
-          Thoughts on &quot;{PostDummy[0].title}&quot;
+          Thoughts on &quot;{data && data.title}&quot;
         </h1>
         <div className="space-y-8 my-6">
-          {PostDummy[0].comments.map((comment, i) => (
-            <CommentComp key={i} comment={comment} />
-          ))}
+          {data &&
+            data.comments.map((comment, i) => (
+              <CommentComp key={i} comment={comment} />
+            ))}
         </div>
         <hr />
       </div>

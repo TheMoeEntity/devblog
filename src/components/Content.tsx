@@ -7,11 +7,11 @@ import { motion } from "framer-motion";
 
 export const Content = (): ReactElement => {
   return (
-    <div className="w-full my-10 bg-red min-h-[400px] ">
+    <div className="w-full my-10 bg-red min-h-[400px] overflow-hidden">
       <div className="w-[200px] bg-lightTwo text-black dark:text-white dark:bg-darkTwo flex justify-center items-center mx-auto py-2 px-4 rounded-lg ">
         Page 1 of 2
       </div>
-      <div className="lg:grid grid-cols-3 justify-start items-center space-y-6 lg:space-y-0 mx-auto max-w-[1100px] ">
+      <div className="md:flex flex-wrap gap-4 grid-cols-3 md:grid-cols-2 justify-center  place-items-start items-center space-y-6 md:space-y-0 mx-auto max-w-[1100px] ">
         {PostDummy.map((post) => (
           <DashPost key={post.id} data={post} />
         ))}

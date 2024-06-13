@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import Image from "next/image";
 import { Bookmark, Eye, Message } from "@/app/post/components/svg"; // Make sure this path is correct
 import { Post as PostType } from "./types";
@@ -22,19 +22,25 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
 
   const truncatedText = truncateText(data.paragraph[0].text, 30);
 
+  const [hovered, setHovered] = useState(false);
+
   return (
     <motion.div
-      onClick={() => router.push("/post")}
+      onClick={() => router.push(`/post/${data.id}`)}
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.8 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
       whileInView={{ opacity: 1, y: 0 }}
-      className="my-10 cursor-pointer text-black dark:text-white"
+      className="my-10 cursor-pointer  text-black dark:text-white overflow-hidden"
     >
-      <div className="z-20 relative w-full mx-auto h-[290px]">
+      <div className="z-20 relative overflow-hidden w-full mx-auto h-[290px] max-w-[355px] rounded-lg">
         <Image
           src={data.image[0]}
           alt="paragraph"
-          className="transition transform hover:scale-105 rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full max-w-[355px]"
+          className={`transition transform  rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full max-w-[355px] ${
+            hovered ? "scale-110" : ""
+          }`}
           fill
           style={{ objectFit: "cover" }}
           quality={100}
@@ -51,7 +57,9 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
         </div>
 
         <motion.h1
-          className="capitalize text-[25px]"
+          className={`capitalize text-[25px] transition-[1s] ${
+            hovered ? "md:text-2xl " : "text-xl"
+          } `}
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.8 }}
           whileInView={{ opacity: 1, x: 0 }}
