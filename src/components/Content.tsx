@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { ReactElement } from "react";
 import { DashPost } from "./DashPost";
 import Post from "../app/post/components/Post";
@@ -7,20 +7,20 @@ import { motion } from "framer-motion";
 
 export const Content = (): ReactElement => {
   return (
-    <div className="w-full my-10 bg-red min-h-[400px] ">
+    <div className="w-full my-10 bg-red min-h-[400px] overflow-hidden">
       <div className="w-[200px] bg-lightTwo text-black dark:text-white dark:bg-darkTwo flex justify-center items-center mx-auto py-2 px-4 rounded-lg ">
         Page 1 of 2
       </div>
-      <div className="lg:grid grid-cols-3 justify-start items-center space-y-6 lg:space-y-0 mx-auto max-w-[1100px] ">
+      <div className="md:flex flex-wrap gap-4 grid-cols-3 md:grid-cols-2 justify-center  place-items-start items-center space-y-6 md:space-y-0 mx-auto max-w-[1100px] ">
         {PostDummy.map((post) => (
           <DashPost key={post.id} data={post} />
         ))}
       </div>
 
       {/* Other Posts */}
-      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto">
+      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto px-4">
         {/* Popular post */}
-        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] px-4">
+        <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] ">
           <h1 className="text-[16px] text-black dark:text-white font-[500]">
             Popular Posts
           </h1>

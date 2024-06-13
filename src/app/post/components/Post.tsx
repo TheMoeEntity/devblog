@@ -47,23 +47,13 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
       </div>
 
       <div className="w-full col-span-7 flex flex-col justify-around">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="text-black dark:text-white text-[16px] font-[500] truncate-2-lines capitalize"
-        >
+        <h1 className="text-black dark:text-white text-[16px] font-[500] truncate-2-lines capitalize">
           {data.title}
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="w-full"
-        >
+        <div className="w-full">
           <PostInfo data={data} />
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

@@ -15,9 +15,7 @@ const Info = ({ data }: { data: Post }): ReactElement => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+
 
   return (
     <div

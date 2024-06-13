@@ -14,10 +14,9 @@ const Header = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(color);
     const storedColor = localStorage.getItem("color");
     if (!storedColor) {
-      const defaultColor = "#ff0000";
+      const defaultColor = "#00A36C";
       localStorage.setItem("color", defaultColor);
       setColor(defaultColor);
     } else {
