@@ -4,16 +4,24 @@ import React from "react";
 import "../../app/globals.css";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "@/app/post/components/svg";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [text, setText] = useState("Blogville");
   const [color, setColor] = useState<string>("");
   const storageEventName = "localStorageUpdate";
   const router = useRouter();
+  const path = usePathname()
 
   useEffect(() => {
+    path.includes("/profile") ? setText("profile") : setText("Blogville")
+  }, [path])
+
+  useEffect(() => {
+    console.log(path)
     const storedColor = localStorage.getItem("color");
     if (!storedColor) {
       const defaultColor = "#00A36C";
@@ -74,10 +82,10 @@ const Header = () => {
         </div>
       </div>
       <h1
-        className="text-[45px] font-black dark:text-[#d0d4d0] text-[#34343B] mt-20 lg:mt-0"
+        className="text-[45px] font-black dark:text-[#d0d4d0] text-[#34343B] mt-20 lg:mt-0 capitalize"
         style={{ fontFamily: "copycat" }}
       >
-        Blogville
+        {text}
       </h1>
       {/* Desktop */}
       <div className="absolute z-10 hidden lg:flex bg-lightTwo dark:bg-darkTwo w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">
