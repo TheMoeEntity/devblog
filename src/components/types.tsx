@@ -25,3 +25,16 @@ export interface Post {
   categories: string[];
   tags: string[];
 }
+
+export interface User {
+  editor: boolean;
+  username: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  dob: string;
+  bio: string;
+  id: string;
+  photo: string;
+}

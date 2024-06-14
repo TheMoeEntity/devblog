@@ -1,4 +1,4 @@
-import { Post } from "./types";
+import { Post, User } from "./types";
 
 export const PostDummy: Post[] = [
   {
@@ -221,5 +221,34 @@ export const PostDummy: Post[] = [
       },
     ],
     tags: ["horizontal-image", "iframe", "relaxation", "video", "venmo"],
+  },
+];
+
+export const userDummy: User[] = [
+  {
+    id: "0440ff0ff0d0ff",
+    username: "Nazville",
+    firstname: "Anthony",
+    lastname: "Ezeh",
+    bio: "Apple bear",
+    dob: "26 11 2000",
+    editor: true,
+    email: "nazbrew@gmail.com",
+    password: "thisisthesaltvalue2j2j22",
+    photo: "thisisit"
+
+  },
+  {
+    id: "044022320ff0d0ff",
+    username: "Leroy",
+    firstname: "David",
+    lastname: "Udo",
+    bio: "They call me Roy, but you can call me anytime",
+    dob: "22 3 2000",
+    editor: false,
+    email: "davidedo @gmail.com",
+    password: "thisisthesaltvalue2j2j22",
+    photo: "thisisit"
+
   },
 ];

@@ -32,13 +32,13 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileInView={{ opacity: 1, y: 0 }}
-      className="my-10 cursor-pointer  text-black dark:text-white overflow-hidden"
+      className="my-10 cursor-pointer  text-black dark:text-white overflow-hidden mx-4 flex flex-col items-center"
     >
-      <div className="z-20 relative overflow-hidden w-full mx-auto h-[290px] max-w-[355px] rounded-lg">
+      <div className="z-20 relative  overflow-hidden w-full  h-[290px] max-w-[500px] rounded-lg">
         <Image
           src={data.image[0]}
           alt="paragraph"
-          className={`transition transform  rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full max-w-[355px] ${
+          className={`transition transform  rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full  ${
             hovered ? "scale-110" : ""
           }`}
           fill
@@ -48,7 +48,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
         />
       </div>
 
-      <div className="relative -mt-4 z-30 rounded-lg shadow-lg overflow-hidden bg-lightTwo dark:bg-darkTwo w-full max-w-[335px] space-y-4 mx-auto py-6 px-4">
+      <div className="relative -mt-4 z-30 rounded-lg shadow-lg overflow-hidden bg-lightTwo dark:bg-darkTwo w-full max-w-[450px] space-y-4 mx-auto py-6 px-4">
         <div className="flex gap-4 justify-start items-center">
           <Bookmark />
           <span className="text-black dark:text-white text-[11px] ">
