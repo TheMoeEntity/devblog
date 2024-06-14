@@ -61,12 +61,11 @@ const Header = () => {
     <header className="w-full text-center py-24 h-[166px] flex justify-center items-center text-black dark:text-white bg-lightOne dark:bg-darkOne relative z-50">
       {/* Mobile */}
       <div className="fixed w-full top-0 shadow-xl lg:hidden left-0 px-5 py-7 bg-lightOne dark:bg-darkOne flex justify-between">
-        <div className="flex items-center font-semibold gap-x-3">
-          <i className="fas fa-bars text-2xl"></i>
+        <div className="flex items-center font-semibold gap-x-3  ">
           <span className="font-medium">Menu</span>
         </div>
-        <div className="flex gap-x-5 items-center">
-          <span>A</span>
+        <div className="flex gap-x-6 text-lg items-center">
+          <i className="bi bi-person-fill" onClick={() => router.push("/profile")}></i>
           {theme === "dark" ? (
             <div onClick={toggleTheme}>
               <Moon />
