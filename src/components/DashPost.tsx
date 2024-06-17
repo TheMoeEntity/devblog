@@ -32,15 +32,14 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileInView={{ opacity: 1, y: 0 }}
-      className="my-10 cursor-pointer  text-black dark:text-white overflow-hidden mx-4 flex flex-col items-center"
+      className="my-10 cursor-pointer  text-black dark:text-white overflow-hidden mx-4 flex flex-col items-center "
     >
       <div className="z-20 relative  overflow-hidden w-full  h-[290px] max-w-[500px] rounded-lg">
         <Image
           src={data.image[0]}
           alt="paragraph"
-          className={`transition transform  rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full  ${
-            hovered ? "scale-110" : ""
-          }`}
+          className={`transition transform  rounded-lg overflow-hidden duration-300 h-[290px] mx-auto w-full  ${hovered ? "scale-110" : ""
+            }`}
           fill
           style={{ objectFit: "cover" }}
           quality={100}
@@ -57,9 +56,7 @@ export const DashPost = ({ data }: PostProps): ReactElement => {
         </div>
 
         <motion.h1
-          className={`capitalize text-[25px] transition-[1s] ${
-            hovered ? "md:text-2xl " : "text-xl"
-          } `}
+          className={`capitalize text-[20px] transition-[1s] `}
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.8 }}
           whileInView={{ opacity: 1, x: 0 }}

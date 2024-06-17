@@ -1,21 +1,23 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { ReactElement, useEffect, useState } from "react";
 
 const Page = (): ReactElement => {
   const colors = [
     "#FF5733",
-    "#DAEE01",
-    "#00ff00",
-    "#33FF57",
     "#5733FF",
-    "#16E2F5",
     "#033E3E",
     "#00A36C",
-    "#FFFF00",
-    "#FFFFC2",
-    "#BD33FF",
+    "#563457",
+    "#1B435E",
+    "#720137",
+    "#9B773D",
+    "#005859",
+    "#11254A",
+  
   ];
   const [color, setColor] = useState("");
+  const router = useRouter()
 
   useEffect(() => {
     const storedColor = localStorage.getItem("color");
@@ -27,6 +29,7 @@ const Page = (): ReactElement => {
   const handleChange = (e: any) => {
     const newColor = e.target.id;
     if (newColor) {
+      router.refresh()
       setColor(newColor);
     }
   };
@@ -52,6 +55,7 @@ const Page = (): ReactElement => {
             key={i}
           ></button>
         ))}
+        <h3 className="text-black text-sm my-5 font-semibold dark:text-white">Effects will take place after you leave this page</h3>
       </div>
     </div>
   );

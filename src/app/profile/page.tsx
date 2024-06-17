@@ -4,8 +4,10 @@ import { User } from "@/components/types";
 import Image from "next/image";
 import React, { ReactElement, useEffect, useState } from "react";
 import { Comment, Edit, Like, Save } from "./components/svg";
+import { useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
+
   const [color, setColor] = useState<string>("");
   const storageEventName = "localStorageUpdate";
   useEffect(() => {
@@ -22,6 +24,7 @@ const Page: React.FC = () => {
       const newColor = localStorage.getItem("color");
       if (newColor) {
         setColor(newColor);
+
       }
     };
 
@@ -70,6 +73,10 @@ const Page: React.FC = () => {
         <div className="flex justify-center items-center w-[100px] h-[100px] mx-auto flex-col space-y-4 rounded-lg bg-[#3871FF] ">
           <Comment />
           <h3>Comments</h3>
+        </div>
+        <div className="flex justify-center items-center w-[100px] h-[100px] mx-auto flex-col space-y-4 rounded-lg bg-[#563457] ">
+          <Edit />
+          <h3>Posts</h3>
         </div>
 
         {/*         <div className="flex justify-center items-center w-[100px] h-[100px] mx-auto flex-col space-y-4 rounded-lg bg-[#FF6839] ">

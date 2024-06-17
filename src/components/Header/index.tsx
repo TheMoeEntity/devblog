@@ -62,9 +62,10 @@ const Header = () => {
       {/* Mobile */}
       <div className="fixed w-full top-0 shadow-xl lg:hidden left-0 px-5 py-7 bg-lightOne dark:bg-darkOne flex justify-between">
         <div className="flex items-center font-semibold gap-x-3  ">
-          <span className="font-medium">Menu</span>
+          <span className="font-medium" onClick={() => router.push("/")}>Menu</span>
         </div>
-        <div className="flex gap-x-6 text-lg items-center">
+        <div className="flex gap-x-6 text-lg items-center has-[i]:cursor-pointer ">
+          <i style={{ color: `${color}` }} className={`bi bi-palette-fill  `} onClick={() => router.push("/color")}></i>
           <i className="bi bi-person-fill" onClick={() => router.push("/profile")}></i>
           {theme === "dark" ? (
             <div onClick={toggleTheme}>

@@ -6,17 +6,23 @@ import { type Post } from "@/components/types";
 import "../../globals.css";
 import PostInfo from "./PostInfo";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Post = ({ data, number }: { number: number; data: Post }): any => {
   const [color, setColor] = useState<string>("#ffffff");
-  const [isMounted, setIsMounted] = useState(false);
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const router = useRouter();
 
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
       transition={{ duration: 0.5 }}
-      className="grid grid-cols-10  bg-lightTwo dark:bg-darkTwo rounded-lg w-full gap-2 lg:gap-6"
+      onClick={() => router.push(`/post/${data.id}`)}
+      className="grid grid-cols-10  bg-lightTwo dark:bg-darkTwo cursor-pointer rounded-lg w-full gap-2 lg:gap-6"
     >
       <div className="relative w-fit col-span-3">
         {/* Index */}
@@ -28,7 +34,7 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
         </span>
 
         <motion.div
-          className="relative w-[100px] h-[100px]  rounded-lg"
+          className="relative w-[100px] h-[100px] overflow-hidden  rounded-lg"
           initial={{ scale: 2 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 1 }}
@@ -41,7 +47,7 @@ const Post = ({ data, number }: { number: number; data: Post }): any => {
             sizes="100vw"
             priority
             quality={100}
-            className="w-full h-full transition transform hover:scale-150 duration-300"
+            className={`w-full h-full  transition transform duration-300 ${hovered ? "scale-125" : ""} `}
           />
         </motion.div>
       </div>
