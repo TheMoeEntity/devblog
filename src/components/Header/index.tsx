@@ -89,33 +89,36 @@ const Header = () => {
       </h1>
       {/* Desktop */}
       <div className="absolute z-10 hidden lg:flex bg-lightTwo dark:bg-darkTwo w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">
-        <div className="flex gap-x-8 text-[13px] font-semibold">
-          <span>Homepage</span>
-          <span>Categories</span>
-          <span>Blog</span>
-          <span>Styles</span>
-          <span>About</span>
-          <span>Contact</span>
+        <div className={`flex has-[span]:capitalize has-[span]:cursor-pointer transition-[.8s]   gap-x-8 text-[13px] font-semibold`}>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("/")}>home</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("")}>categories</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("")}>blog</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("")}>about</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("")}>contact</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("/profile")}>Profile</span>
+          <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("/color")}>colors</span>
+
         </div>
         <div className="flex gap-x-3">
           <a href="">
-            <i className="fa-brands fa-x-twitter"></i>
+            <i className="bi bi-twitter"></i>
           </a>
           <a href="">
-            <i className="fa-brands fa-facebook-f"></i>
+            <i className="bi bi-facebook"></i>
           </a>
           <a href="">
-            <i className="fa-brands fa-instagram"></i>
+            <i className="bi bi-instagram"></i>
           </a>
           <a href="">
-            <i className="fa-brands fa-linkedin"></i>
+            <i className="bi bi-linkedin"></i>
           </a>
         </div>
-        <div className="flex gap-x-3">
-          <button>
-            <i className="fa-solid fa-magnifying-glass"></i>
+
+        <div className="flex gap-x-3 ">
+          <button className="">
+            <i className="bi bi-search"></i>
           </button>
-          <span className="font-semibold">@Subscribe</span>
+
         </div>
       </div>
     </header>
