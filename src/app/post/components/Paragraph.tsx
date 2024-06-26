@@ -14,10 +14,10 @@ const Paragraph: React.FC<ParagraphProps> = ({ data }) => {
 
   return (
     <div className="space-y-6 mx-auto pt-5 lg:pt-10">
-      <div className="space-y-6 mx-auto w-full relative overflow-hidden">
+      <div className="space-y-6 mx-auto w-full relative overflow-hidden lg:max-w-[1000px]">
         {data.image && (
           <motion.div
-            initial={{ scale: 2 }}
+            initial={{ scale: 1.5 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: .5 }}
             className="relative lg:max-w-[1000px] w-full h-[250px] lg:h-[666px] rounded-lg overflow-hidden mx-auto"

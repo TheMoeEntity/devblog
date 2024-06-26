@@ -1,15 +1,15 @@
 "use client";
 import React, { type ReactElement, useEffect, useState } from "react";
 
+const storedColor = localStorage.getItem("color");
 const useColor = () => {
   const [color, setColor] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedColor = localStorage.getItem("color");
       setColor(storedColor);
     }
-  }, []);
+  }, [storedColor]);
 
   return color;
 };
@@ -262,7 +262,7 @@ export const Message = (): ReactElement => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-       width="12"
+      width="12"
       height="12"
       fill={color ? color : "none"}
       className="stroke-black w-6 h-6"

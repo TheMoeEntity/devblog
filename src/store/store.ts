@@ -1,39 +1,30 @@
-import { Post } from "@/components/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const postStore = create(
   persist(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (set, get: any) => ({
       post: [],
-      total: 0,
 
-      addToPost: (data: Post) => {
-        const oldPost = get().post;
-        const isInPost = oldPost.find((post: Post) => {
-          return post.id === data.id;
+      save: (data: string) => {
+        const store = get().post;
+        const isInPost = store.find((post: string) => {
+          return post == data;
         });
 
         if (isInPost) {
           return; // Item already in post, no action needed
         } else {
-          const newPost = [...oldPost, data];
+          const newPost = [...store, data];
           return set({ post: newPost });
         }
       },
-      removeFromPost: (data: any) => {
-        const post = get().post;
-        const newPost = post.filter(
-          (postItem: any) => postItem.item._id !== data._id
-        );
-        return set({ post: newPost });
-      },
 
-      revalidate: (data: any) => {
+      unsave: (data: string) => {
         const post = get().post;
-        const index = post.findIndex((item: any) => item._id === data._id);
-        post[index].quantity = data.quantity;
-        return set({ post: post });
+        const newPost = post.filter((postItem: string) => postItem !== data);
+        return set({ post: newPost });
       },
     }),
     { name: "post" }

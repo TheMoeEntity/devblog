@@ -12,38 +12,20 @@ const Header = () => {
   const [mounted, setMounted] = useState(false);
   const [text, setText] = useState("Blogville");
   const [color, setColor] = useState<string>("");
-  const storageEventName = "localStorageUpdate";
+  const newColor = localStorage.getItem("color")
   const router = useRouter();
   const path = usePathname()
 
   useEffect(() => {
+
     path.includes("/profile") ? setText("profile") : setText("Blogville")
   }, [path])
 
   useEffect(() => {
-    console.log(path)
-    const storedColor = localStorage.getItem("color");
-    if (!storedColor) {
-      const defaultColor = "#00A36C";
-      localStorage.setItem("color", defaultColor);
-      setColor(defaultColor);
-    } else {
-      setColor(storedColor);
+    if (newColor) {
+      setColor(newColor)
     }
-
-    const handleStorageChange = () => {
-      const newColor = localStorage.getItem("color");
-      if (newColor) {
-        setColor(newColor);
-      }
-    };
-
-    window.addEventListener(storageEventName, handleStorageChange);
-
-    return () => {
-      window.removeEventListener(storageEventName, handleStorageChange);
-    };
-  }, [color]);
+  }, [newColor])
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -58,7 +40,7 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full text-center py-24 h-[166px] flex justify-center items-center text-black dark:text-white bg-lightOne dark:bg-darkOne relative z-50">
+    <header className="w-full text-center py-24 h-[166px] flex flex-col justify-center items-center text-black dark:text-white bg-lightOne dark:bg-darkOne relative z-50">
       {/* Mobile */}
       <div className="fixed w-full top-0 shadow-xl lg:hidden left-0 px-5 py-7 bg-lightOne dark:bg-darkOne flex justify-between">
         <div className="flex items-center font-semibold gap-x-3  ">
@@ -69,11 +51,11 @@ const Header = () => {
           <i className="bi bi-person-fill" onClick={() => router.push("/profile")}></i>
           {theme === "dark" ? (
             <div onClick={toggleTheme}>
-              <Moon />
+              <i style={{ color: `${color}` }} className={`bi bi-moon-stars-fill  `} onClick={() => router.push("/color")}></i>
             </div>
           ) : (
             <div onClick={toggleTheme}>
-              <Sun />
+              <i style={{ color: `${color}` }} className={`bi bi-lamp-fill  `} onClick={() => router.push("/color")}></i>
             </div>
           )}
           <span>
@@ -82,13 +64,20 @@ const Header = () => {
         </div>
       </div>
       <h1
-        className="text-[45px] font-black dark:text-[#d0d4d0] text-[#34343B] mt-20 lg:mt-0 capitalize"
+        className="text-[45px] py-4 w-full font-black dark:text-[#d0d4d0] text-[#34343B] mt-20  capitalize mx-4"
         style={{ fontFamily: "copycat" }}
       >
         {text}
+
+        <div className="breadcrumbs lg:hidden text-sm text-start">
+          <ul>
+
+            {path.split("/").map((route, i) => <li key={i}><a>{route}</a></li>)}
+          </ul>
+        </div>
       </h1>
       {/* Desktop */}
-      <div className="absolute z-10 hidden lg:flex bg-lightTwo dark:bg-darkTwo w-[1000px] h-[70px] gap-x-10 items-center justify-center -bottom-5 left-1/2 -translate-x-1/2 px-7 rounded-xl py-7 shadow-lg">
+      <div className="mx-auto z-10 hidden lg:flex bg-lightTwo dark:bg-darkTwo  h-[70px] gap-x-10 items-center justify-center w-[1000px] px-7 rounded-xl py-7 shadow-lg">
         <div className={`flex has-[span]:capitalize has-[span]:cursor-pointer transition-[.8s]   gap-x-8 text-[13px] font-semibold`}>
           <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("/")}>home</span>
           <span className="transition-[.8s] hover:scale-[1.2] " onClick={() => router.push("")}>categories</span>
@@ -120,6 +109,11 @@ const Header = () => {
           </button>
 
         </div>
+      </div>
+      <div className="breadcrumbs text-md  z-10 hidden lg:flex w-[800px] gap-x-10 items-center justify-center px-7 rounded-xl py-7 overflow-hidden  ">
+        <ul className="no-underline disabled">
+          {path.split("/").map((route, i) => <li key={i}><a className="no-underline disabled ">{route}</a></li>)}
+        </ul>
       </div>
     </header>
   );
