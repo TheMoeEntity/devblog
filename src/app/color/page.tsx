@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { MouseEvent, ReactElement, useEffect, useState } from "react";
 
 const Page = (): ReactElement => {
   const colors = [
@@ -28,8 +28,8 @@ const Page = (): ReactElement => {
     }
   }, []);
 
-  const handleChange = (e: { target: { id: string; }; }) => {
-    const newColor = e.target.id;
+  const handleChange = (e: MouseEvent<HTMLElement>) => {
+    const newColor = (e.target as HTMLElement).id;
     if (newColor) {
       router.refresh()
       setColor(newColor);

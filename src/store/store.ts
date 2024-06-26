@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const postStore = create(
   persist(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (set, get: any) => ({
       post: [],
 

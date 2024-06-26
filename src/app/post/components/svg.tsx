@@ -9,7 +9,7 @@ const useColor = () => {
     if (typeof window !== "undefined") {
       setColor(storedColor);
     }
-  }, [storedColor]);
+  });
 
   return color;
 };
@@ -141,7 +141,6 @@ export const Hash = (): ReactElement => {
 };
 
 export const ChevronRight = (): ReactElement => {
-  const color = useColor();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -160,8 +159,7 @@ export const ChevronRight = (): ReactElement => {
 };
 
 export const ChevronLeft = (): ReactElement => {
-  const color = useColor();
-  return (
+   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"

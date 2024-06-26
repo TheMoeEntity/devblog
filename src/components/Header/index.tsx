@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import React from "react";
 import "../../app/globals.css";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "@/app/post/components/svg";
 import { useRouter, usePathname } from "next/navigation";
 
 
