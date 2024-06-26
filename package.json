@@ -20,12 +20,21 @@
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.4",
     "zustand": "^4.5.2"
   },
   "lint-staged": {
     "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.tsx": [
       "eslint --fix",
       "git add"
     ]
@@ -36,6 +45,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.8",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-react": "^7.34.2",

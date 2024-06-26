@@ -18,7 +18,7 @@ export const Content = (): ReactElement => {
       </div>
 
       {/* Other Posts */}
-      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 mx-auto px-4">
+      <div className="max-w-[1040px] lg:gap-6 flex flex-col lg:grid grid-cols-3 overflow-hidden mx-auto px-4">
         {/* Popular post */}
         <div className="lg:max-w-[350px] w-full my-10 mx-auto space-y-[20px] ">
           <h1 className="text-[16px] text-black dark:text-white font-[500]">
@@ -50,15 +50,15 @@ export const Content = (): ReactElement => {
           <form className="w-full space-y-4">
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Name</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <input className="w-full px-2 h-[45px] bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Email</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <input className="w-full px-2 h-[45px] bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Subject</h3>
-              <input className="w-full h-[45px] bg-[#F8F8FA]" type="text" />
+              <input className="w-full h-[45px] px-2 bg-[#F8F8FA]" type="text" />
             </label>
             <label className="w-full flex flex-col space-y-2 font-[500]">
               <h3 className="text-[13px]">Your Message</h3>
@@ -66,7 +66,7 @@ export const Content = (): ReactElement => {
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="w-full h-[150px] resize-none bg-[#F8F8FA]"
+                className="w-full h-[150px] resize-none p-2 bg-[#F8F8FA]"
               />
             </label>
 

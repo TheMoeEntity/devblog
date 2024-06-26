@@ -8,14 +8,14 @@ const Author = ({ data }: { data: string }) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 1 }}
+      transition={{ duration: .5, }}
       className="flex gap-3 w-full max-w-[800px] mx-auto flex-wrap"
     >
       <motion.div
         className="h-[72px] w-[72px] relative rounded-full overflow-hidden "
-        initial={{ scale: 2 }}
+        initial={{ scale: 1.5 }}
         whileInView={{ scale: 1 }}
-        transition={{ duration: 1, delay: 1 }}
+        transition={{ duration: 1, }}
       >
         <Image
           layout="fill"

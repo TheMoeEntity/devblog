@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import "../../../app/globals.css";
 
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Bookmark, ChevronLeft, ChevronRight, Hash } from "../components/svg";
 import Image from "next/image";
 import Paragraph from "../components/Paragraph";
@@ -10,21 +11,61 @@ import Info from "../components/Info";
 import Author from "../components/Author";
 import Post from "../components/Post";
 import CommentComp from "../components/Comment";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide, } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { useRef } from "react";
 import { motion } from "framer-motion";
+import { postStore } from "@/store/store";
+import { toast, ToastContainer } from "react-toastify";
 
 const Page = ({ params }: { params: { id: string } }) => {
   const [data, setData] = useState<Post | undefined>(undefined);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const findId = () => {
+  const save = postStore((state: any) => state.save)
+  const unsave = postStore((state: any) => state.unsave)
+  const postStorage = postStore((state: any) => state.post)
+
+
+  const findId = (): void => {
     const valid = PostDummy.find((i) => i.id === params.id);
     if (valid) {
       setData(valid);
     }
   };
+
+  const isSaved = () => {
+    const a = postStorage.find((item: string) => item == params.id)
+    return a
+  }
+
+  useEffect(() => {
+
+
+  }, [postStorage])
+
+
+
+  const bookmark = (): void => {
+
+    if (isSaved()) {
+      toast("unsaved", {
+        type: "warning",
+        autoClose: 1500,
+        theme: "dark",
+        position: "top-right"
+      })
+      unsave(data?.id)
+    } else {
+      save(data?.id)
+      toast("Saved", {
+        type: "success",
+        autoClose: 1500,
+        theme: "dark",
+        position: "top-right"
+      })
+
+    }
+
+  }
 
   useEffect(() => {
     findId();
@@ -34,6 +75,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="w-full bg-lightOne dark:bg-darkOne dark:text-white text-[#6d6d6d] min-h-screen p-4 space-y-6 pt-20">
+      <ToastContainer />
       {data && <Info data={data} />}
 
       {/* Title and Subject Image */}
@@ -114,17 +156,19 @@ const Page = ({ params }: { params: { id: string } }) => {
             <motion.span
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              key={i}
+              key={i}                                                                                               
             >
               #{tag}
             </motion.span>
           ))}
       </div>
 
+      <div style={{background: isSaved() ? "red" : "green"}} className="w-full max-w-[800px] mx-auto h-[50px] text-black dark:text-[white] dark:bg-darkThree bg-lightThree flex justify-center items-center gap-2 cursor-pointer " onClick={bookmark}>{isSaved() ? "Unsave" : "Save"} <Bookmark /> </div>
       <hr />
 
       {/* About the author */}
       <Author data={data && data.author} />
+
 
       {/* Comments */}
       <div className="py-10 max-w-[800px] mx-auto">
